@@ -1,8 +1,8 @@
 ### Create out express server
 - create repository
 - Initialize the repository
-    - git init
-    
+    - git init // initialize recpository
+
 - node_modules, package.json, package.lock.json
 - Install Express
 - Create a server using express
@@ -32,4 +32,16 @@ app.use("/test",(req, res)=>{
 app.listen(7777, ()=>{
     console.log("Server is successfully listening on port 7777....")
 })
+
+### Routing and Request Handler
+- initialize git
+- create .gitignore file
+- Create a remote repo on github
+- Pull all code to remote origin
+    - git add . // stage all the changes
+    - // connet my repository to romte using this command
+    - git remote add origin https://github.com/pravin-mishra123/devTinder_fullStack_webapp.git
+    - git branch -M main
+    - git push -u origin main
+
 

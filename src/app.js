@@ -5,14 +5,19 @@ const app = express();
 
 // handling request and response 
 // request handler => (req, res)=>{res.send("Hello Server")}
-app.use("/",(req, res)=>{
-    res.send("Server started on port 7777")
+// app.use("/",(req, res)=>{
+//     res.send("Server started on port 7777")
 
-})
+// })
 
 // difference routing path
 app.use("/test",(req, res)=>{
     res.send("Testing path")
+
+})
+
+app.use("/hello",(req, res)=>{
+    res.send("hello hello hello!!")
 
 })
 
