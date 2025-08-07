@@ -140,7 +140,17 @@ app.listen(7777, ()=>{
   res.send({ firstName: "Pravin", lastName: "Mishra", age: 30, city: "Varanasi" });
 });
 
-- Explore more about route
+### Episode-05 || Middlewares and Error handling
+* Explore more about route handler => https://expressjs.com/en/guide/routing.html
+    * Multiple Route handlers  -Play with code
+    * next()
+    * next function and errors along with res.send(), play with changing the next() up,down because order matters alot
+    * What is route handler in express => https://expressjs.com/en/guide/routing.html
+    * app.use("/route",[fun1,fun2,fun3.........]) => play with this wrapping in array of functions
+    
+
+
+
 
 
 
