@@ -3,37 +3,29 @@ const express = require("express");
 
 const app = express();
 
-app.use("/user",(req,res, next)=>{
-  console.log("Handle1")
-  // route handler
+// this is middleware
+app.get(
+  "/user",
+  (req, res, next) => {
+    console.log("Route handling 1");
+    // res.send("Route 1")
+    next();
+  },
+  (req, res, next) => {
+    next();
+  },
+  (req, res) => {
+    // request / route handler
+    res.send("Handling the response here");
+  }
+);
 
-  // res.send("Route handler 1") // what if we have not handle the req/res handle => it will go in loop because it is not getting response back
-    next()
-},
-(req, res,next) =>{
-  console.log("handle2")
-  next()
- 
-},
-[(req, res,next) =>{
-  console.log("handle3")
-  next()
- 
-},
-(req, res,next) =>{
-  console.log("handle4")
-  next()
- 
-}],
-(req, res) =>{
-  console.log("handle5")
-  res.send("Rute5")
-  // next()
- 
-}
-)
+// app.get("/user",(req, res)=>{
+//   console.log("Route handling 2");
+//   res.send("Route 2")
+// })
 
 // started listening my server on 3000 port
-app.listen(7777, ()=>{
-    console.log("Server is successfully listening on port 7777....")
-})
+app.listen(7777, () => {
+  console.log("Server is successfully listening on port 7777....");
+});

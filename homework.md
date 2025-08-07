@@ -147,7 +147,34 @@ app.listen(7777, ()=>{
     * next function and errors along with res.send(), play with changing the next() up,down because order matters alot
     * What is route handler in express => https://expressjs.com/en/guide/routing.html
     * app.use("/route",[fun1,fun2,fun3.........]) => play with this wrapping in array of functions
-    
+* Other way of route handler---
+    app.get("/user",(req, res, next)=>{
+  console.log("Route handling 1");
+  // res.send("Route 1")
+  next();
+    })
+
+    app.get("/user",(req, res)=>{
+  console.log("Route handling 2");
+  res.send("Route 2")
+    })
+    * but order of execution matters, if we move the second to top then first will not work because next() not used there.
+
+* What is middleWare in express? Why do we need => https://expressjs.com/en/guide/routing.html
+    - how expressJs basically handles requests behind the scense
+
+    // middleware
+    app.get("/user",(req, res, next)=>{
+    console.log("Route handling 1");
+    // res.send("Route 1")
+    next();
+    })
+
+    // request / route handler - which is actually sending the response back
+    app.get("/user",(req, res)=>{
+    console.log("Route handling 2");
+    res.send("Route 2")
+    })
 
 
 
