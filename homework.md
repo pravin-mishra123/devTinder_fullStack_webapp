@@ -246,6 +246,23 @@ app.listen(7777, () => {
   console.log("Server is successfully listening on port 7777....");
 });
 
+* Error Handling
+  - wildcard error handling using => app.use("/",(err,req,res,next) =>{}); => it should always end of the code and it will catch the err gracefully
+  - using try-catch within the api - that will also give the proper error message
+  app.get("/getUserData", (req, res) => {
+  try {
+    throw new Error("This is unexpected errors...");
+    res.send("Get all user datas.....");
+  } catch (error) {
+    res.status(500).send("Some error occured, contact to support team!!");
+  }
+});
+
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong!!!");
+  }
+});
 
 
 

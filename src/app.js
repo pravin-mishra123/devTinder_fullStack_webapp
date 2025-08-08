@@ -2,29 +2,21 @@
 const express = require("express");
 
 const app = express();
-const { adminAuth, userAuth } = require("./middlewares/Auth");
 
-// Why do we need middleware actually ??
 
-// Handle Auth Middleware for all GET, POST.........requests.
-
-app.use("/admin", adminAuth);
-// app.use("/user", userAuth) // write like this also
-
-app.get("/admin/getAllData", (req, res) => {
-  res.send("All data sent");
+app.get("/getUserData", (req, res) => {
+  try {
+    throw new Error("This is unexpected errors...");
+    res.send("Get all user datas.....");
+  } catch (error) {
+    res.status(500).send("Some error occured, contact to support team!!");
+  }
 });
 
-app.get("/admin/deleteUser", (req, res) => {
-  res.send("Deleted the User");
-});
-
-app.get("/user/login", (req, res) => {
-  res.send("User logged in successfully");
-});
-
-app.get("/user/deleteUser", userAuth, (req, res) => {
-  res.send("Kya bolte ho");
+app.use("/", (err, req, res, next) => {
+  if (err) {
+    res.status(500).send("Something went wrong!!!");
+  }
 });
 
 // started listening my server on 3000 port
