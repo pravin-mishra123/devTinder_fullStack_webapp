@@ -176,6 +176,78 @@ app.listen(7777, ()=>{
     res.send("Route 2")
     })
 
+* app.use vs app.all
+* What is middleware ? Why do we need middleware ?
+* Write a dummy auth middleware for admin
+* Write a dummy auth middleware for user
+ - example of actual need of middleware
+  - Auth.js
+
+  const adminAuth = (req, res, next) => {
+  console.log(" admin auth getting checked !!");
+  const token = "xyz";
+  const isAuthorized = token === "xyz";
+  if (!isAuthorized) {
+    res.status(401).send("Unauthorize request");
+  } else {
+    next();
+  }
+};
+
+const userAuth = (req, res, next) => {
+  console.log("user auth getting checked !!");
+  const token = "xyz";
+  const isAuthorized = token === "xyz";
+  if (!isAuthorized) {
+    res.status(401).send("Unauthorize request");
+  } else {
+    next();
+  }
+};
+
+module.exports = {
+  adminAuth,
+  userAuth,
+};
+
+- app.js
+
+// creating server using express
+const express = require("express");
+
+const app = express();
+const { adminAuth, userAuth } = require("./middlewares/Auth");
+
+// Why do we need middleware actually ??
+
+// Handle Auth Middleware for all GET, POST.........requests.
+
+app.use("/admin", adminAuth);
+// app.use("/user", userAuth) // write like this also
+
+app.get("/admin/getAllData", (req, res) => {
+  res.send("All data sent");
+});
+
+app.get("/admin/deleteUser", (req, res) => {
+  res.send("Deleted the User");
+});
+
+app.get("/user/login", (req, res) => {
+  res.send("User logged in successfully");
+});
+
+app.get("/user/deleteUser", userAuth, (req, res) => {
+  res.send("Kya bolte ho");
+});
+
+// started listening my server on 3000 port
+app.listen(7777, () => {
+  console.log("Server is successfully listening on port 7777....");
+});
+
+
+
 
 
 
