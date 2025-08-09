@@ -264,6 +264,16 @@ app.use("/", (err, req, res, next) => {
   }
 });
 
+### Episode-06 | Database, Schema & Models | Mongoose
+* Create fee cluster on MongoDB official website (Mongo Atlas)
+* Install mongoose library => npm install mongoose
+* Connect your application to the database "connection-url"/devTinderDB 
+* Call the connectDB function and connect to database before starting application on 7777 port
+* Create a User Schema & User Model
+* Create POST/signup API to add the data to database
+* Push some documents using api call (Postman)
+* handle the error using try-catch in every api call
+
 
 
 
