@@ -274,6 +274,45 @@ app.use("/", (err, req, res, next) => {
 * Push some documents using api call (Postman)
 * handle the error using try-catch in every api call
 
+### Episode-07 | Diving into APIs
+* Difference between JSON and JavaScript object? => https://www.geeksforgeeks.org/javascript/json-vs-javascript-object/
+* Add the express.json niddleware to your app
+* Make your /signup API dynamic to recevies the data from end-user (browser / postman)
+  // creating server using express
+  const express = require("express");
+  const { connectDB } = require("./config/database");
+  const app = express();
+  const User = require("./models/user");
+
+  // middleware => it is reading and converting JSON request data into javaScript object
+  app.use(express.json());
+
+  app.post("/signup", async (req, res) => {
+  // Creating a new instance of the User model
+  const user = new User(req.body);
+
+  try {
+    await user.save();
+    res.send("User Added Successfully!!");
+  } catch (error) {
+    res.status(400).send("Error saving the user: ", error.message);
+  }
+  });
+
+  connectDB()
+  .then(() => {
+    console.log("Database Connected Successfully!!");
+    // started listening my server on 3000 port
+    app.listen(7777, () => {
+      console.log("Server is successfully listening on port 7777....");
+    });
+  })
+  .catch((err) => {
+    console.error("Database cannot connected!!");
+  });
+
+
+
 
 
 
