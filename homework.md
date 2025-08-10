@@ -310,6 +310,10 @@ app.use("/", (err, req, res, next) => {
   .catch((err) => {
     console.error("Database cannot connected!!");
   });
+* User.fineOne with duplicate email ids, which object returned?
+* API - get user by email
+* API - feed API - GET /feed - get all the users from the database
+
 
 
 
