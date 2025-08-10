@@ -313,6 +313,22 @@ app.use("/", (err, req, res, next) => {
 * User.fineOne with duplicate email ids, which object returned?
 * API - get user by email
 * API - feed API - GET /feed - get all the users from the database
+* Get the user by id using findById method
+* Create a delete user API and delete the data by userId
+* app.delete("/user", async (req, res) => {
+  const userId = req.body.userId;
+
+  try {
+    const user = await User.findByIdAndDelete({_id:userId})
+    // const user = await User.findByIdAndDelete(userId);
+    console.log("user", user);
+    res.send("User Deleted Successfully");
+  } catch (error) {
+    res.status(400).send("Something went wrong...");
+  }
+});
+
+
 
 
 
