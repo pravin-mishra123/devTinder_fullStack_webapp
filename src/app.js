@@ -51,10 +51,33 @@ app.delete("/user", async (req, res) => {
 
 // Update Data of the user
 
-app.patch("/user", async (req, res) => {
-  const userId = req.body.userId;
+app.patch("/user/:userId", async (req, res) => {
+  const userId = req.params?.userId;
   const data = req.body;
   try {
+    const ALLOWED_UPDATES = ["photoUrl", "age", "about", "gender", "skills"];
+
+    const isUpdateAllowed = Object.keys(data).every((k) =>
+      ALLOWED_UPDATES.includes(k)
+    );
+    if (!isUpdateAllowed) {
+      throw new Error("Update not allowed");
+    }
+
+    if (data?.skills) {
+      // Check max skills limit
+      if (data.skills.length > 10) {
+        throw new Error("Skills can not be more than 10");
+      }
+      // Check for duplicates
+      const uniqueSkills = [
+        ...new Set(data.skills.map((s) => s.trim().toLowerCase())),
+      ];
+      if (uniqueSkills.length !== data.skills.length) {
+        throw new Error("Duplicate skills are not allowed");
+      }
+    }
+
     await User.findByIdAndUpdate({ _id: userId }, data, {
       returnDocument: "before",
       runValidators: true,

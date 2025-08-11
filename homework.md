@@ -365,3 +365,5 @@ res.status(500).send("Something went wrong!!!");
 - Create a custom validate function for gender
 - Improve the Database Schema more - put all the appropriate validations on each filed in Schema.
 - Add timestamps to the User Schema
+- Add API level validations on Patch request and Signup post api
+- Add API validations for each fields
