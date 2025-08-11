@@ -366,4 +366,4 @@ res.status(500).send("Something went wrong!!!");
 - Improve the Database Schema more - put all the appropriate validations on each filed in Schema.
 - Add timestamps to the User Schema
 - Add API level validations on Patch request and Signup post api
-- Add API validations for each fields
+- Data Sanitization - Add API validations for each fields
