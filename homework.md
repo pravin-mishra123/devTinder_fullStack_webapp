@@ -328,7 +328,24 @@ app.use("/", (err, req, res, next) => {
   }
 });
 
-
+* Difference between PUT & PATCH http method?
+* Difference between POST and PUT http method ?
+* Create Update api to update the user data in the database
+* Explore the mongoose documentation for Model methods(API) => https://mongoosejs.com/docs/api/model.html
+* What are the options in a Model.findOneAndUpdate method, explore more about it.
+* Create an API to update the user data using email not user id.
+app.patch("/user", async (req, res) => {
+  const userId = req.body.userId;
+  const data = req.body;
+  try {
+    await User.findByIdAndUpdate({ _id: userId }, data, {
+      returnDocument: "before",
+    });
+    res.send("User Updated Successfully!!");
+  } catch (error) {
+    res.status(400).send("Something went wrong...");
+  }
+});
 
 
 
