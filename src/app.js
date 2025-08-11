@@ -3,7 +3,6 @@ const express = require("express");
 const { connectDB } = require("./config/database");
 const app = express();
 const User = require("./models/user");
-const user = require("./models/user");
 
 // middleware => it is reading and converting JSON request data into javaScript object
 app.use(express.json());
@@ -14,8 +13,8 @@ app.post("/signup", async (req, res) => {
   try {
     await user.save();
     res.send("User Added Successfully!!");
-  } catch (error) {
-    res.status(400).send("Error saving the user: ", error.message);
+  } catch (err) {
+    res.status(400).send("Error saving the user: " + err.message);
   }
 });
 
@@ -58,10 +57,11 @@ app.patch("/user", async (req, res) => {
   try {
     await User.findByIdAndUpdate({ _id: userId }, data, {
       returnDocument: "before",
+      runValidators: true,
     });
     res.send("User Updated Successfully!!");
   } catch (error) {
-    res.status(400).send("Something went wrong...");
+    res.status(400).send("Update failed: " + error.message);
   }
 });
 
