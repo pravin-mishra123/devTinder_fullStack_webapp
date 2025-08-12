@@ -369,4 +369,5 @@ res.status(500).send("Something went wrong!!!");
 - Data Sanitization - Add API validations for each fields
 - Install validator library => npm i validator
 - Explore validator library functions and Use validator function for password, email, photoUrl =>https://www.npmjs.com/package/validator
+- NEVER TRUST req.body -> important
 
