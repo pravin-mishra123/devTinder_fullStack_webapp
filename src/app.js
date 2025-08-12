@@ -3,18 +3,32 @@ const express = require("express");
 const { connectDB } = require("./config/database");
 const app = express();
 const User = require("./models/user");
+const { validateSignUpData } = require("./utils/validation");
+const bcrypt = require("bcrypt");
 
 // middleware => it is reading and converting JSON request data into javaScript object
 app.use(express.json());
 
 app.post("/signup", async (req, res) => {
-  // Creating a new instance of the User model
-  const user = new User(req.body);
   try {
+    // validation of data
+    validateSignUpData(req);
+
+    const { firstName, lastName, emailId, password } = req.body;
+    // Encrypt the password
+    const passwordHash = await bcrypt.hash(password, 10);
+    // Creating a new instance of the User model
+    const user = new User({
+      firstName,
+      lastName,
+      emailId,
+      password: passwordHash,
+    });
+
     await user.save();
     res.send("User Added Successfully!!");
   } catch (err) {
-    res.status(400).send("Error saving the user: " + err.message);
+    res.status(400).send("ERROR : " + err.message);
   }
 });
 
@@ -55,7 +69,14 @@ app.patch("/user/:userId", async (req, res) => {
   const userId = req.params?.userId;
   const data = req.body;
   try {
-    const ALLOWED_UPDATES = ["photoUrl", "age", "about", "gender", "skills"];
+    const ALLOWED_UPDATES = [
+      "photoUrl",
+      "age",
+      "about",
+      "gender",
+      "skills",
+      "password",
+    ];
 
     const isUpdateAllowed = Object.keys(data).every((k) =>
       ALLOWED_UPDATES.includes(k)

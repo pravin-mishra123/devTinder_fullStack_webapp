@@ -368,6 +368,12 @@ res.status(500).send("Something went wrong!!!");
 - Add API level validations on Patch request and Signup post api
 - Data Sanitization - Add API validations for each fields
 - Install validator library => npm i validator
-- Explore validator library functions and Use validator function for password, email, photoUrl =>https://www.npmjs.com/package/validator
+- Explore validator library functions and Use validator function for password, email, photoUrl => https://www.npmjs.com/package/validator
 - NEVER TRUST req.body -> important
+
+### Episode-09 | Encrypting Password
+- Validate data in Signup API 
+- Install bcrypt package for paswword hash => npm i bcrypt
+- Create a passwordHash using bcrypt.hash & save the user is encrypted password
+- Explore more about the bcrypt library => https://www.npmjs.com/package/bcrypt
 
