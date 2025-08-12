@@ -367,3 +367,6 @@ res.status(500).send("Something went wrong!!!");
 - Add timestamps to the User Schema
 - Add API level validations on Patch request and Signup post api
 - Data Sanitization - Add API validations for each fields
+- Install validator library => npm i validator
+- Explore validator library functions and Use validator function for password, email, photoUrl =>https://www.npmjs.com/package/validator
+
