@@ -376,4 +376,5 @@ res.status(500).send("Something went wrong!!!");
 - Install bcrypt package for paswword hash => npm i bcrypt
 - Create a passwordHash using bcrypt.hash & save the user is encrypted password
 - Explore more about the bcrypt library => https://www.npmjs.com/package/bcrypt
-
+- Create login API - POST api
+- Compare password and throw if email or password is invalid.
