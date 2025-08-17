@@ -378,3 +378,12 @@ res.status(500).send("Something went wrong!!!");
 - Explore more about the bcrypt library => https://www.npmjs.com/package/bcrypt
 - Create login API - POST api
 - Compare password and throw if email or password is invalid.
+
+### Authentication, JWT & cookies
+* Install cookie-parser => https://www.npmjs.com/package/cookie-parser
+* understand the cookie-parser from documentation => https://expressjs.com/en/resources/middleware/cookie-parser.html & https://expressjs.com/en/5x/api.html#res.cookie
+* Just send a dummy cookie to user
+* Create GET /profile Api and check if you can get cookie back and read the cookie also
+* Install jsonwebtoken => https://www.npmjs.com/package/jsonwebtoken
+* In login API, after email and password validation, create a JWT token and send it to user inside cookies
+* Read the cookies inside your profile API and find the logged in user
