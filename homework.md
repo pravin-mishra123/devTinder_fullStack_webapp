@@ -392,3 +392,5 @@ res.status(500).send("Something went wrong!!!");
 - Create userAuth middleware
 - Add the userAuth Middleware in /profile and sentNewConnectionRequest API
 - set the expiry of JWT token and cookies to 7 days =>https://www.npmjs.com/package/jsonwebtoken and https://expressjs.com/en/api.html#res.cookie
+* Create userSchema mthod to getJWT()
+* Create userSchema method to comparepassword(passwordInputByUser)
