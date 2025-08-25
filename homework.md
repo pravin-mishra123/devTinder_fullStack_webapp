@@ -405,3 +405,7 @@ res.status(500).send("Something went wrong!!!");
 - create routes folder for managing auth, profile, request router
 - create authRouter, profileRouter, requestRouter
 - import these in the routers in app.js
+- Create POST /logout API
+- Create PATCH /profile/edit
+- Create PATCH /profile/password API => forgot password api
+- Make sure you validate all data in every POST, PATCH APIs
