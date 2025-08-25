@@ -380,7 +380,7 @@ res.status(500).send("Something went wrong!!!");
 - Create login API - POST api
 - Compare password and throw if email or password is invalid.
 
-### Authentication, JWT & cookies
+### Episode-10 | Authentication, JWT & cookies
 
 - Install cookie-parser => https://www.npmjs.com/package/cookie-parser
 - understand the cookie-parser from documentation => https://expressjs.com/en/resources/middleware/cookie-parser.html & https://expressjs.com/en/5x/api.html#res.cookie
@@ -392,5 +392,16 @@ res.status(500).send("Something went wrong!!!");
 - Create userAuth middleware
 - Add the userAuth Middleware in /profile and sentNewConnectionRequest API
 - set the expiry of JWT token and cookies to 7 days =>https://www.npmjs.com/package/jsonwebtoken and https://expressjs.com/en/api.html#res.cookie
-* Create userSchema mthod to getJWT()
-* Create userSchema method to comparepassword(passwordInputByUser)
+
+- Create userSchema mthod to getJWT()
+- Create userSchema method to comparepassword(passwordInputByUser)
+
+### Episode-11 | Diving into the APIs and express router
+
+- Explore tinder APIs
+- Create a list of all APIs, you can think of in devTinder
+- Group Multiple routes under respective routes
+- Read the documentation for express.Router() =>https://expressjs.com/en/api.html#express.router
+- create routes folder for managing auth, profile, request router
+- create authRouter, profileRouter, requestRouter
+- import these in the routers in app.js
