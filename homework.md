@@ -409,3 +409,16 @@ res.status(500).send("Something went wrong!!!");
 - Create PATCH /profile/edit
 - Create PATCH /profile/password API => forgot password api
 - Make sure you validate all data in every POST, PATCH APIs
+
+### Episode-12 | Logical DB Query & Compound Indexes
+
+- Create connection request schema
+- Send Connection Request API
+- Apply Proper Validation of data
+- Think about all corner cases
+- Read more about how to create query in MongoDB ?
+- $or query $and query in mongoose : https://www.mongodb.com/docs/manual/reference/operator/query/or/
+- Read about the indexes in MongoDB : https://www.mongodb.com/docs/manual/indexes/
+- Why do we need indexing in DB?
+- What is the advantage and disadvantage of creating index ?
+- Read this artical about compound indexes :https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
