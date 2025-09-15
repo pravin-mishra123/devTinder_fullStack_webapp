@@ -422,3 +422,7 @@ res.status(500).send("Something went wrong!!!");
 - Why do we need indexing in DB?
 - What is the advantage and disadvantage of creating index ?
 - Read this artical about compound indexes :https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+
+
+### Episode-13 | ref, populate & Thought process of writing APIs
+- Write code for proper validations POST /request/review/:status/:requestId
