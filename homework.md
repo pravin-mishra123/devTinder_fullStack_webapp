@@ -391,7 +391,7 @@ res.status(500).send("Something went wrong!!!");
 - Read the cookies inside your profile API and find the logged in user
 - Create userAuth middleware
 - Add the userAuth Middleware in /profile and sentNewConnectionRequest API
-- set the expiry of JWT token and cookies to 7 days =>https://www.npmjs.com/package/jsonwebtoken and https://expressjs.com/en/api.html#res.cookie
+- set the expiry of JWT token and cookies to 7 days => https://www.npmjs.com/package/jsonwebtoken and https://expressjs.com/en/api.html#res.cookie
 
 - Create userSchema mthod to getJWT()
 - Create userSchema method to comparepassword(passwordInputByUser)
@@ -401,7 +401,7 @@ res.status(500).send("Something went wrong!!!");
 - Explore tinder APIs
 - Create a list of all APIs, you can think of in devTinder
 - Group Multiple routes under respective routes
-- Read the documentation for express.Router() =>https://expressjs.com/en/api.html#express.router
+- Read the documentation for express.Router() => https://expressjs.com/en/api.html#express.router
 - create routes folder for managing auth, profile, request router
 - create authRouter, profileRouter, requestRouter
 - import these in the routers in app.js
@@ -417,12 +417,17 @@ res.status(500).send("Something went wrong!!!");
 - Apply Proper Validation of data
 - Think about all corner cases
 - Read more about how to create query in MongoDB ?
-- $or query $and query in mongoose : https://www.mongodb.com/docs/manual/reference/operator/query/or/
-- Read about the indexes in MongoDB : https://www.mongodb.com/docs/manual/indexes/
+- $or query $and query in mongoose => https://www.mongodb.com/docs/manual/reference/operator/query/or/
+- Read about the indexes in MongoDB => https://www.mongodb.com/docs/manual/indexes/
 - Why do we need indexing in DB?
 - What is the advantage and disadvantage of creating index ?
-- Read this artical about compound indexes :https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+- Read this artical about compound indexes => https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
 
 
 ### Episode-13 | ref, populate & Thought process of writing APIs
 - Write code for proper validations POST /request/review/:status/:requestId
+- Thought process of POST vs GET very differently - think before write, think all the corner case
+- Read about ref and populate => https://mongoosejs.com/docs/populate.html
+- Create GET /user/requests/received with all the checks(validations).
+
+
