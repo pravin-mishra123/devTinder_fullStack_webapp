@@ -1,4 +1,4 @@
-### Create out express server
+### Episode - 03 | Create our express server
 
 #### Staring my server to use - npm run dev
 
@@ -38,7 +38,7 @@ app.listen(7777, ()=>{
 console.log("Server is successfully listening on port 7777....")
 })
 
-### Routing and Request Handler
+### Episode-04 | Routing and Request Handler
 
 - initialize git
 - create .gitignore file
@@ -344,18 +344,6 @@ res.status(500).send("Something went wrong!!!");
 - Explore the mongoose documentation for Model methods(API) => https://mongoosejs.com/docs/api/model.html
 - What are the options in a Model.findOneAndUpdate method, explore more about it.
 - Create an API to update the user data using email not user id.
-  app.patch("/user", async (req, res) => {
-  const userId = req.body.userId;
-  const data = req.body;
-  try {
-  await User.findByIdAndUpdate({ \_id: userId }, data, {
-  returnDocument: "before",
-  });
-  res.send("User Updated Successfully!!");
-  } catch (error) {
-  res.status(400).send("Something went wrong...");
-  }
-  });
 
 ### Episode-08 | Data Sanitization & Schema Validation (important for database)
 
