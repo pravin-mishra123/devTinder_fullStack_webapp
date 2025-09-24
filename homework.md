@@ -5,7 +5,7 @@
 - create repository
 - Initialize the repository
 
-  - git init // initialize recpository
+- git init // initialize recpository
 
 - node_modules, package.json, package.lock.json
 - Install Express
